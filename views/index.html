@@ -7,22 +7,39 @@
   </head>
   <body>
     <h1>Welcome to Songs API Preview!</h1>
-    <p>In this page you can test API in Postman using these endpoints:
-      <ul>
-        <li>GET songs: <strong>/songs</strong></li>
-        <li>POST song with key "title" and "album": <strong>/songs</strong></li>
-        <li>UPDATE song by id: <strong>/song/:id</strong></li>
-        <li>DELETE song by id: <strong>/song/:id</strong></li>
-      </ul>
-    </p>
-    <p>In case you prefer test it in address bar, use these endpoints:
-      <ul>
-        <li>POST song with params "title" and "album": <strong>/song/:title/:album</strong></li>
-        <li>UPDATE song by id, title, album: <strong>/song/:id/:title/:album</strong></li>
-      </ul>
-    </p>
+    <p>In this page you can test API in Postman using these endpoints:</p>
+    <h3>GET</h3>
+    <ul>
+      <li>GET songs: <strong>/songs</strong></li>
+      <li>GET song by id: <strong>/song/:id</strong></li>
+      <li>GET songs by album: <strong>/songs/:album/album</strong></li>
+    </ul>
+    <h3>POST</h3>
+    <ul>
+      <li>POST song with key "title" and "album": <strong>/songs</strong></li>
+      <p>Available try at address bar:</p>
+      <li>
+        POST song with params "title" and "album":
+        <strong>/song/:title/:album</strong>
+      </li>
+    </ul>
+    <h3>UPDATE</h3>
+    <ul>
+      <li>UPDATE song by id: <strong>/song/:id</strong></li>
+      <p>Available try at address bar:</p>
+      <li>
+        UPDATE song by id, title, album:
+        <strong>/song/:id/:title/:album</strong>
+      </li>
+    </ul>
+    <h3>DELETE</h3>
+    <ul>
+      <li>DELETE song by id: <strong>/song/:id</strong></li>
+    </ul>
+
+    <br />
     <p>This API will send you feedback in JSON format</p>
-    <br>
-    <h3>PORT: 5000</h3>
+    <br />
+    <br />
   </body>
 </html>
