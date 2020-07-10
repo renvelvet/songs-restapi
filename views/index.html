@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Welcome to Songs API Preview!</h1>
-    <p>In this page you can test API in Postman using these endpoints:</p>
+    <p>In this page you can test API using these endpoints:</p>
     <h3>GET</h3>
     <ul>
       <li>GET songs: <strong>/songs</strong></li>
@@ -16,20 +16,23 @@
     </ul>
     <h3>POST</h3>
     <ul>
-      <li>POST song with key "title" and "album": <strong>/songs</strong></li>
-      <p>Available try at address bar:</p>
       <li>
         POST song with params "title" and "album":
         <strong>/song/:title/:album</strong>
       </li>
+      <p>Available try at Postman only:</p>
+      <li>POST song with key "title" and "album": <strong>/songs</strong></li>
     </ul>
     <h3>UPDATE</h3>
     <ul>
-      <li>UPDATE song by id: <strong>/song/:id</strong></li>
-      <p>Available try at address bar:</p>
       <li>
         UPDATE song by id, title, album:
         <strong>/song/:id/:title/:album</strong>
+      </li>
+      <p>Available try at Postman only:</p>
+      <li>
+        UPDATE song with key "title", "album", and "id":
+        <strong>/song/:id</strong>
       </li>
     </ul>
     <h3>DELETE</h3>
