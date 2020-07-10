@@ -17,6 +17,7 @@ app.get("/songs", (req, res) => {
   res.send(songs);
 });
 
+// POST
 app.post("/songs", (req, res) => {
   const { title, album } = req.body;
   const id = songs[songs.length - 1].id + 1;
@@ -29,9 +30,54 @@ app.post("/songs", (req, res) => {
   });
 });
 
+app.get("/song/:title/:album", (req, res) => {
+  const { title, album } = req.params;
+  console.log(title);
+
+  const id = songs[songs.length - 1].id + 1;
+  songs.push({ id, title, album });
+  console.log(id);
+
+  res.send({
+    message: "Data berhasil ditambahkan",
+    songAdded: songs,
+  });
+});
+
+// PUT
 app.put("/song/:id", (req, res) => {
   const { id } = req.params;
   const { title, album } = req.body;
+
+  let newTitle;
+  let newAlbum;
+
+  if (title === null || title === "") {
+    newTitle = songs[id].title;
+  } else {
+    newTitle = title;
+  }
+
+  if (album === null || album === "") {
+    newAlbum = songs[id].album;
+  } else {
+    newAlbum = album;
+  }
+
+  songs.splice(id, 1, {
+    id,
+    title: newTitle,
+    album: newAlbum,
+  });
+
+  res.send({
+    message: "Data berhasil diubah",
+    updatedSongs: songs,
+  });
+});
+
+app.get("/song/:id/:title/:album", (req, res) => {
+  const { id, title, album } = req.params;
 
   let newTitle;
   let newAlbum;
