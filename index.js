@@ -77,7 +77,20 @@ app.post("/songs", (req, res) => {
     songAdded: songs,
   });
 });
+app.post("/song/:title/:album", (req, res) => {
+  const { title, album } = req.params;
+  console.log(title);
 
+  const id = songs[songs.length - 1].id + 1;
+  songs.push({ id, title, album });
+  console.log(id);
+
+  res.send({
+    message: "Data berhasil ditambahkan",
+    songAdded: songs,
+  });
+});
+// available try at address bar
 app.get("/song/:title/:album", (req, res) => {
   const { title, album } = req.params;
   console.log(title);
@@ -123,7 +136,37 @@ app.put("/song/:id", (req, res) => {
     updatedSongs: songs,
   });
 });
+app.put("/song/:id/:title/:album", (req, res) => {
+  const { id, title, album } = req.params;
 
+  let newTitle;
+  let newAlbum;
+
+  if (title === null || title === "") {
+    newTitle = songs[id].title;
+  } else {
+    newTitle = title;
+  }
+
+  if (album === null || album === "") {
+    newAlbum = songs[id].album;
+  } else {
+    newAlbum = album;
+  }
+
+  songs.splice(id, 1, {
+    id,
+    title: newTitle,
+    album: newAlbum,
+  });
+
+  res.send({
+    message: "Data berhasil diubah",
+    updatedSongs: songs,
+  });
+});
+
+// available try at address bar
 app.get("/song/:id/:title/:album", (req, res) => {
   const { id, title, album } = req.params;
 
